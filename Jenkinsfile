@@ -5,7 +5,8 @@ pipeline {
         REGISTRY = "danish072001"  // Your Docker Hub username
         IMAGE_NAME = "webapp"
         TAG = "latest"
-        WORKDIR = "C:/jenkins-docker-pipeline" // Change path accordingly
+        WORKDIR = "WORKDIR = "C:/ProgramData/Jenkins/.jenkins/workspace/Docker-Pipeline"
+" // Change path accordingly
     }
 
     stages {
