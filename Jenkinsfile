@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "danish072001"  // Your Docker Hub username
-        IMAGE_NAME = "webapp"
-        TAG = "latest"
-        WORKDIR = "WORKDIR = "C:/ProgramData/Jenkins/.jenkins/workspace/Docker-Pipeline"
-" // Change path accordingly
-    }
+    REGISTRY = "danish072001"  // Your Docker Hub username
+    IMAGE_NAME = "webapp"
+    TAG = "latest"
+    WORKDIR = "C:/ProgramData/Jenkins/.jenkins/workspace/Docker-Pipeline"
+}
+
 
     stages {
         stage('Build & Push Docker Image') {
