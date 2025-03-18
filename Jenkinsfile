@@ -5,16 +5,16 @@ pipeline {
         REGISTRY = "danish072001"  // Your Docker Hub username
         IMAGE_NAME = "webapp"
         TAG = "latest"
-        WORKDIR = "C:/jenkins-docker-pipeline" // Change this if needed
+        WORKDIR = "C:/jenkins-docker-pipeline" // Change path accordingly
     }
 
     stages {
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t $REGISTRY/$IMAGE_NAME:$TAG .'
+                    bat 'docker build -t %REGISTRY%/%IMAGE_NAME%:%TAG% .'
                     withDockerRegistry([credentialsId: 'docker-hub-creds', url: '']) {
-                        sh 'docker push $REGISTRY/$IMAGE_NAME:$TAG'
+                        bat 'docker push %REGISTRY%/%IMAGE_NAME%:%TAG%'
                     }
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 script {
-                    sh 'docker-compose up -d'
+                    bat 'docker-compose up -d'
                 }
             }
         }
